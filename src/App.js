@@ -1,5 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './components/Navigation';
+import { Container } from 'reactstrap';
 
 /*
   JSX (JavaScript XML): Allows us to use JS to write HTML
@@ -43,10 +44,12 @@ function App() {
   let x = 'abc';
   return (
     <div className="App">
-      <h1>E-commerce Store - Toys</h1>
-      <SubTitle title="Home Page" foo="bar" num={1} x={x} func={() => {}} />
-      <SubTitle title="About Page" />
-      <SubTitle title="Products" />
+      <Navigation />
+      <Container>
+        <SubTitle title="Home Page" foo="bar" num={1} x={x} func={() => {}} />
+        <SubTitle title="About Page" />
+        <SubTitle title="Products" />
+      </Container>
     </div>
   );
 }
