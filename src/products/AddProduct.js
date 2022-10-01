@@ -25,9 +25,6 @@ import { Card, CardBody, CardHeader, Col, Button, Form, FormGroup, Input, Label 
 */
 
 function AddProduct() {
-  let defaultProducts = [
-    { name: 'Sample Product' }
-  ];
 
   // Hooks: Hooking into react's lifecycle events
   // useState() returns an array => [ data, function to set the data ]
