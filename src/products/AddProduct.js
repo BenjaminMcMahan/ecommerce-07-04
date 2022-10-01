@@ -58,6 +58,7 @@ function AddProduct() {
   }
 
   const handleSubmit = function(event) {
+    event.preventDefault(); // prevents the form from submitting, since we're pulling in the event
     // Combine all the product data into an object and add it to our productsList array
     let product = {
       name,
@@ -71,49 +72,50 @@ function AddProduct() {
 
   // productList.push({name: 'ABC'});
 
-  return <div>
-    <Card>
-      <CardHeader tag="h3">Add a Product</CardHeader>
-      <CardBody>
-        {/* Form goes here */}
-        <Form>
-          <FormGroup row>
-            <Label xs={3}>Name</Label>
-            <Col xs={9}>
-              <Input name="product" onChange={handleProductName} />
-              <small>Value is: {name}</small>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label xs={3}>Description</Label>
-            <Col xs={9}>
-              <Input type="textarea" name="description" onChange={handleDescription} />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label xs={3}>Quantity</Label>
-            <Col xs={9}>
-              <Input type="number" name="quantity" onChange={handleQuantity} />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label xs={3}>Picture</Label>
-            <Col xs={9}>
-              <Input type="file" name="picture" onChange={handlePicture} />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Col xs={12}>
-              <Button color="success" onClick={handleSubmit}>Submit</Button>
-            </Col>
-          </FormGroup>
-        </Form>
-      </CardBody>
-    </Card>
-    <ProductList show={true} hide={false} 
-      products={productList} 
-    />
-  </div>
-};
+  return (
+      <div>
+        <Card>
+          <CardHeader tag="h3">Add a Product</CardHeader>
+          <CardBody>
+            {/* Form goes here */}
+            <Form>
+              <FormGroup row>
+                <Label xs={3}>Name</Label>
+                <Col xs={9}>
+                  <Input name="product" onChange={handleProductName} />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label xs={3}>Description</Label>
+                <Col xs={9}>
+                  <Input type="textarea" name="description" onChange={handleDescription} />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label xs={3}>Quantity</Label>
+                <Col xs={9}>
+                  <Input type="number" name="quantity" onChange={handleQuantity} />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Label xs={3}>Picture</Label>
+                <Col xs={9}>
+                  <Input type="file" name="picture" onChange={handlePicture} />
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col xs={12}>
+                  <Button color="success" onClick={handleSubmit}>Submit</Button>
+                </Col>
+              </FormGroup>
+            </Form>
+          </CardBody>
+        </Card>
+        <ProductList show={true} hide={false}
+                     products={productList}
+        />
+      </div>
+  );
+}
 
 export default AddProduct;
