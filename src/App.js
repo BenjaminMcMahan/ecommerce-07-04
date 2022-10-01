@@ -1,6 +1,8 @@
 import './App.css';
 import Navigation from './components/Navigation';
 import { Container } from 'reactstrap';
+import AddProduct from './products/AddProduct';
+import ProductList from './products/ProductList';
 
 /*
   JSX (JavaScript XML): Allows us to use JS to write HTML
@@ -44,11 +46,11 @@ function App() {
   let x = 'abc';
   return (
     <div className="App">
-      <Navigation />
+      
       <Container>
         <SubTitle title="Home Page" foo="bar" num={1} x={x} func={() => {}} />
-        <SubTitle title="About Page" />
-        <SubTitle title="Products" />
+        {/* <SubTitle title="About Page" />
+        <SubTitle title="Products" /> */}
       </Container>
     </div>
   );
