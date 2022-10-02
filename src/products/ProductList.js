@@ -21,34 +21,38 @@ import { Link } from 'react-router-dom';
 function ProductList({ products }) {
   // let { products } = data;
 
-  return <Card>
-    <CardHeader tag="h3">Product List</CardHeader>
-    <CardBody>
-      <Table>
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Picture</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products !== undefined && 
-            products.map(product => {
-              return <tr>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.quantity}</td>
-                <td>{product.picture}</td>
-                <td><Link to={`/product-details/${product.name}-${product.quantity}`}>View</Link></td>
-              </tr>
-          })}
-       </tbody>
-       </Table>
-    </CardBody>
-  </Card>;
-};
+  return (
+      <Card>
+        <CardHeader tag="h3">Product List</CardHeader>
+        <CardBody>
+          <Table>
+            <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Picture</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {products !== undefined &&
+                products.map((product, idx) => {
+                  return (
+                      <tr key={idx}>
+                          <td>{product.name}</td>
+                          <td>{product.description}</td>
+                          <td>{product.quantity}</td>
+                          <td>{product.picture}</td>
+                          <td><Link to={`/product-details/${product.name}-${product.quantity}`}>View</Link></td>
+                      </tr>
+                  )
+                })}
+            </tbody>
+          </Table>
+        </CardBody>
+      </Card>
+  );
+}
 
 export default ProductList;
