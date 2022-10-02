@@ -54,8 +54,7 @@ function AddProduct() {
     setPicture(event.target.value);
   }
 
-  const handleSubmit = function(event) {
-    event.preventDefault(); // prevents the form from submitting, since we're pulling in the event
+  const handleSubmit = function() {
     // Combine all the product data into an object and add it to our productsList array
     let product = {
       name,
