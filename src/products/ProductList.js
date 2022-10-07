@@ -43,7 +43,7 @@ function ProductList({ products }) {
                           <td>{product.name}</td>
                           <td>{product.description}</td>
                           <td>{product.quantity}</td>
-                          <td>{product.picture}</td>
+                          <td><img width="100" src={product.picture} /></td>
                           <td><Link to={`/product-details/${product.name}-${product.quantity}`}>View</Link></td>
                       </tr>
                   )

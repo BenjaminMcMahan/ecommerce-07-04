@@ -96,7 +96,7 @@ function AddProduct() {
               <FormGroup row>
                 <Label xs={3}>Picture</Label>
                 <Col xs={9}>
-                  <Input type="file" name="picture" onChange={handlePicture} />
+                  <Input type="text" placeholder="Image url/data" name="picture" onChange={handlePicture} />
                 </Col>
               </FormGroup>
               <FormGroup row>
