@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import Navigation from './components/Navigation';
 import AddProduct from './products/AddProduct';
+import Giveaway from './products/Giveaway';
 import ProductDetails from './products/ProductDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,6 +19,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/home" element={<App />} />
         <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/giveaway" element={<Giveaway />} />
         <Route path="/product-details/:name-:quantity" element={<ProductDetails />} />
       </Routes>
     </Container>

@@ -28,6 +28,9 @@ function Navigation(args) {
             <NavLink tag={RouterLink} to="/add-product">
               Add Product
             </NavLink>
+            <NavLink tag={RouterLink} to="/giveaway">
+              Product Giveaway
+            </NavLink>
           </Nav>
         </Collapse>
       </Navbar>
