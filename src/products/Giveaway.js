@@ -3,7 +3,10 @@ import { Card, CardHeader, CardBody, Alert, CardTitle, CardFooter, FormGroup, Fo
 
 /*
   Optional Challenges:
-    - 
+    - Restart the timer with a button
+    - Hide the winner message if we don't have a winner
+    - Add validation to the email input field
+    - Handle the Cancel button
 */
 
 const giveawayToys = [
