@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import ProductList from './ProductList';
 import { Card, CardBody, CardHeader, Col, Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
@@ -28,9 +29,11 @@ function AddProduct() {
 
   // Hooks: Hooking into react's lifecycle events
   // useState() returns an array => [ data, function to set the data ]
+  const dispatch = useDispatch();
   const [name, setName] = useState();
   const [description, setDescription] = useState();
   const [quantity, setQuantity] = useState();
+  const [isbn, setIsbn] = useState();
   const [picture, setPicture] = useState();
   const [productList, setProductList] = useState([]); // argument sets the default of the data
 
@@ -49,6 +52,11 @@ function AddProduct() {
     setQuantity(event.target.value);
   }
 
+  const handleIsbn = function(event) {
+    console.log(event.target.value);
+    setIsbn(event.target.value);
+  }
+
   const handlePicture = function(event) {
     console.log(event.target.value);
     setPicture(event.target.value);
@@ -60,10 +68,16 @@ function AddProduct() {
       name,
       description,
       quantity,
-      picture
+      picture,
+      isbn
     }
 
-    setProductList((currentProductList) => [...currentProductList, product]); // Set products list to an array with the product object
+    dispatch({
+      type: 'ADD_PRODUCT',
+      addedProduct: product
+    });
+
+    // setProductList((currentProductList) => [...currentProductList, product]); // Set products list to an array with the product object
   }
 
   // productList.push({name: 'ABC'});
@@ -75,6 +89,12 @@ function AddProduct() {
           <CardBody>
             {/* Form goes here */}
             <Form>
+              <FormGroup row>
+                <Label xs={3}>ISBN</Label>
+                <Col xs={9}>
+                  <Input name="isbn" onChange={handleIsbn} />
+                </Col>
+              </FormGroup>
               <FormGroup row>
                 <Label xs={3}>Name</Label>
                 <Col xs={9}>
@@ -107,9 +127,7 @@ function AddProduct() {
             </Form>
           </CardBody>
         </Card>
-        <ProductList show={true} hide={false}
-                     products={productList}
-        />
+        <ProductList show={true} hide={false} />
       </div>
   );
 }

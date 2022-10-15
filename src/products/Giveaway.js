@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Card, CardHeader, CardBody, Alert, CardTitle, CardFooter, FormGroup, Form, Label, Input, Button } from 'reactstrap';
 
 /*
@@ -9,15 +10,17 @@ import { Card, CardHeader, CardBody, Alert, CardTitle, CardFooter, FormGroup, Fo
     - Handle the Cancel button
 */
 
-const giveawayToys = [
-  'Robocop', 'Stretch Armstrong', 'GI Joe', 'Model Airplane', 'Go Bots', 'Lawn Darts for Children'
-];
+// const giveawayToys = [
+//   'Robocop', 'Stretch Armstrong', 'GI Joe', 'Model Airplane', 'Go Bots', 'Lawn Darts for Children'
+// ];
 
-const INITIAL_TIMER = 10;
+const INITIAL_TIMER = 30;
 
 function Giveaway() {
   // const [name, setName] = useState();
   // const [email, setEmail] = useState();
+  const giveawayToys = useSelector(state => state.productsList.map(toy => toy.name));
+  console.log('giveaway toys', giveawayToys);
   const [data, setData] = useState({});
   const [disableButton, setDisableButton] = useState(true);
   const [timer, setTimer] = useState(INITIAL_TIMER);
@@ -95,7 +98,7 @@ function Giveaway() {
 
   const handleSubmit = (event) => {
     // Give away a random toy = pick a random item from the array
-    let randomNumber = Math.floor(Math.random() * 10); // 0.23
+    let randomNumber = Math.floor(Math.random() * (giveawayToys.length + 3)); // 0.23
     let randomToy = giveawayToys[randomNumber];
     console.log("Number picked", randomNumber);
 
